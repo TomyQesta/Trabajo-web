@@ -1,0 +1,137 @@
+/* Reseteo básico para que ocupe toda la pantalla sin márgenes blancos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+html {
+    scroll-behavior: smooth; /* Activa el deslizamiento suave */
+    scroll-padding-top: 90px; /* Evita que el menú fijo superior tape los títulos al bajar */
+}
+
+/* Aprovechamos para agregar un estilo básico para las nuevas secciones de ropa */
+.seccion-ropa {
+    padding: 60px 40px;
+    min-height: 50vh; /* Hace que cada sección ocupe al menos la mitad de la pantalla */
+    text-align: center;
+}
+
+.seccion-ropa h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #1a1a1a;
+    text-transform: uppercase;
+}
+body {
+    background-color: #f8f9fa;
+}
+
+/* --- BARRA DE NAVEGACIÓN --- */
+.barra-navegacion {
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    height: 70px;
+    position: fixed; /* Esto hace que el menú siempre quede arriba al bajar */
+    width: 100%;
+    top: 0;
+    z-index: 100; /* Asegura que el menú esté por encima de la imagen */
+}
+
+.menu-principal {
+    list-style: none;
+    display: flex;
+    gap: 120px; 
+    margin-left: 60px; /* Esto empuja Hombre y Mujer hacia la derecha */
+}
+
+.item-menu {
+    position: relative; /* Importante para que el submenú se posicione debajo de este item */
+    padding: 25px 0;
+}
+
+.item-menu > a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.item-menu:hover > a {
+    color: #a8a8a8; /* Cambia de color al pasar el mouse */
+}
+
+/* --- SUBMENÚ --- */
+.submenu {
+    list-style: none;
+    position: absolute; 
+    top: 70px; 
+    
+    /* Estos dos comandos nuevos centran la persiana perfectamente debajo de cada palabra */
+    left: 50%;
+    transform: translateX(-50%); 
+    
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5); 
+    background-color: #1a1a1a; 
+    max-height: 0; 
+    overflow: hidden; 
+    transition: max-height 0.4s ease-in-out; 
+}
+
+/* Cuando paso el mouse, la "persiana" baja */
+.item-menu:hover .submenu {
+    max-height: 400px; /* Le damos una altura lo suficientemente grande para que entren las opciones */
+}
+
+.submenu li a {
+    color: white; /* Letras blancas para contrastar con el fondo negro */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #333; /* Una línea divisoria sutil y oscura */
+    transition: background-color 0.2s; /* Transición suave para el hover de cada item */
+}
+
+/* Le quitamos el borde al último elemento para que quede más prolijo */
+.submenu li:last-child a {
+    border-bottom: none;
+}
+
+/* Efecto al pasar el mouse por cada opción del submenú */
+.submenu li a:hover {
+    background-color: #333; /* Un gris oscuro para indicar qué estás seleccionando */
+}
+
+/* --- LOBBY (FONDO Y TÍTULO) --- */
+.lobby {
+    height: 100vh; /* Ocupa el 100% de la altura de tu pantalla */
+    width: 100%;
+    /* Imagen de tienda genérica de Unsplash */
+    background-image: url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.capa-oscura {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Un negro transparente */
+}
+
+.titulo-marca {
+    color: white;
+    font-size: 100px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    z-index: 10; /* Lo pone por encima de la capa oscura */
+    text-shadow: 2px 4px 10px rgba(0,0,0,0.5); /* Sombrita para que resalte más */
+}
