@@ -15,7 +15,6 @@
             <li class="item-menu">
                 <a href="#">Hombre</a>
                 <ul class="submenu">
-                    <!-- Fíjate cómo los href ahora apuntan a los IDs con un # -->
                     <li><a href="#hombre-camisetas">Camisetas</a></li>
                     <li><a href="#hombre-shorts">Shorts</a></li>
                     <li><a href="#hombre-conjuntos">Conjuntos</a></li>
@@ -33,7 +32,6 @@
                     <li><a href="#mujer-calzas">Calzas</a></li>
                     <li><a href="#conjuntos-mujer">Conjuntos</a></li>
                     <li><a href="#buzos-mujer">Buzos</a></li>
-                    <li><a href="#Mas-prox">Proximamente</a></li>
                 </ul>
             </li>
 
@@ -50,66 +48,213 @@
         <h1 class="titulo-marca">FourTeen</h1>
     </main>
 
-    <!-- AQUÍ EMPIEZAN LAS SECCIONES A LAS QUE VAMOS A BAJAR -->
+    <!-- SECCIONES DE ROPA -->
     
     <section id="hombre-camisetas" class="seccion-ropa">
         <h2>Camisetas Deportivas</h2>
-        <!-- Aquí adentro luego pondremos los productos -->
-        <p>Catálogo de camisetas próximamente...</p>
+        <div class="catalogo-grid">
+            <div class="tarjeta-producto">
+                <img src="imagenes/Brasil-Titular-2002.jpg" alt="Camiseta Titular Brasil 2002">
+                <h3>Camiseta Titular Brasil 2002</h3>
+                <div class="selector-talle">
+                    <label for="talle-2">Talle:</label>
+                    <select id="talle-2" name="talle">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+                </div>
+                <p class="precio">$30.500</p>
+                <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+
+            <div class="tarjeta-producto">
+                <img src="imagenes/Argentina-Suplente-1994.jpg" alt="Argentina-Suplente-1994">
+                <h3>Camiseta Suplente Argentina 1994</h3>
+                <div class="selector-talle">
+                    <label for="talle-2">Talle:</label>
+                    <select id="talle-2" name="talle">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+                </div>
+                <p class="precio">$16.000</p>
+                <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+
+            <div class="tarjeta-producto">
+                <img src="imagenes/Francia-Suplente-2006.jpg" alt="Francia Suplente">
+                <h3>Camiseta Suplente Francia 2006</h3>
+                <div class="selector-talle">
+                    <label for="talle-2">Talle:</label>
+                    <select id="talle-2" name="talle">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+                </div>
+                <p class="precio">$16.000</p>
+                <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+
+            <div class="tarjeta-producto">
+                <img src="imagenes/River-Titular-2018.jpg" alt="River-Titular-2018">
+                <h3>Camiseta Titular River Plate 2018</h3>
+                <div class="selector-talle">
+                    <label for="talle-2">Talle:</label>
+                    <select id="talle-2" name="talle">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+                </div>
+                <p class="precio">$16.000</p>
+                <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+        </div>
     </section>
 
-    <section id="hombre-shorts" class="seccion-ropa" style="background-color: #e9ecef;">
+    <section id="hombre-shorts" class="seccion-ropa alt-bg">
         <h2>Shorts de Hombre</h2>
-        <p>Catálogo de shorts próximamente...</p>
+        <div class="catalogo-grid">
+            <div class="tarjeta-producto">
+                <img src="https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=500" alt="Short Deportivo">
+                <h3>Short Running Pro</h3>
+                <p class="precio">$14.000</p>
+                <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+        </div>
     </section>
 
-    <section id="hombre-conjuntos" class="seccion-ropa" style="background-color: #e9ecef;">
+    <section id="hombre-conjuntos" class="seccion-ropa">
         <h2>Conjuntos Hombre</h2>
-        <p>Catálogo de shorts próximamente...</p>
+        <div class="catalogo-grid">
+            <div class="tarjeta-producto">
+                <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=500" alt="Conjunto Hombre">
+                <h3>Set Deportivo FourTeen</h3>
+                <p class="precio">$35.000</p>
+                <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+        </div>
     </section>
     
-    <section id="remera-hombre" class="seccion-ropa">
+    <section id="remeras-hombre" class="seccion-ropa alt-bg">
         <h2>Remeras Hombre</h2>
-        <p>Catálogo de tops próximamente...</p>
+        <div class="catalogo-grid">
+            <div class="tarjeta-producto">
+                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500" alt="Remera Oversize">
+                <h3>Remera Oversize Street</h3>
+                <!-- Selector de Talle -->
+    <div class="selector-talle">
+        <label for="talle-1">Talle:</label>
+        <select id="talle-1" name="talle">
+            <option value="S">S</option>
+            <option value="M" selected>M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="XL">XXL</option>
+        </select>
+    </div>
+                <p class="precio">$20.000</p>
+                <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+        </div>
     </section>
 
-    <section id="pantalones-hombre" class="seccion-ropa" style="background-color: #e9ecef;">
+    <section id="pantalones-hombre" class="seccion-ropa">
         <h2>Pantalones Hombre</h2>
-        <p>Catálogo de shorts próximamente...</p>
+        <div class="catalogo-grid">
+            <div class="tarjeta-producto">
+                <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=500" alt="Pantalón Jogger">
+                <h3>Jogger Fit Negro</h3>
+                <p class="precio">$28.000</p>
+                <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+        </div>
     </section>
 
-    <section id="buzos-hombre" class="seccion-ropa" style="background-color: #e9ecef;">
+    <section id="buzos-hombre" class="seccion-ropa alt-bg">
         <h2>Buzos Hombre</h2>
-        <p>Catálogo de shorts próximamente...</p>
+        <div class="catalogo-grid">
+            <div class="tarjeta-producto">
+                <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=500" alt="Buzo Hoodie">
+                <h3>Hoodie Oversize Heavy</h3>
+                <p class="precio">$32.000</p>
+                <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+        </div>
     </section>
 
-
-
-     <section id="mujer-tops" class="seccion-ropa">
+    <section id="mujer-tops" class="seccion-ropa">
         <h2>Superior Mujeres</h2>
-        <p>Catálogo de tops próximamente...</p>
+        <div class="catalogo-grid">
+            <div class="tarjeta-producto">
+                <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=500" alt="Top Deportivo">
+                <h3>Top Sport Seamless</h3>
+                <p class="precio">$12.500</p>
+                <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+        </div>
     </section>
 
-     <section id="mujer-pantalones" class="seccion-ropa">
+    <section id="mujer-pantalones" class="seccion-ropa alt-bg">
         <h2>Pantalones Mujeres</h2>
-        <p>Catálogo de tops próximamente...</p>
+        <div class="catalogo-grid">
+            <div class="tarjeta-producto">
+                <img src="https://images.unsplash.com/photo-1506629082925-2368c7f76df1?w=500" alt="Pantalón Mujer">
+                <h3>Pantalón Cargo Wide</h3>
+                <p class="precio">$29.000</p>
+                <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+        </div>
     </section>
 
-     <section id="mujer-calzas" class="seccion-ropa">
+    <section id="mujer-calzas" class="seccion-ropa">
         <h2>Calzas</h2>
-        <p>Catálogo de tops próximamente...</p>
+        <div class="catalogo-grid">
+            <div class="tarjeta-producto">
+                <img src="https://images.unsplash.com/photo-1506629082925-2368c7f76df1?w=500" alt="Calza">
+                <h3>Calza Biker High Waist</h3>
+                <p class="precio">$15.000</p>
+                <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+        </div>
     </section>
 
-    <section id="conjuntos-mujer" class="seccion-ropa">
-        <h2>Conjuntos</h2>
-        <p>Catálogo de tops próximamente...</p>
+    <section id="conjuntos-mujer" class="seccion-ropa alt-bg">
+        <h2>Conjuntos Mujer</h2>
+        <div class="catalogo-grid">
+            <div class="tarjeta-producto">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=500" alt="Conjunto Mujer">
+                <h3>Set Seamless Top + Calza</h3>
+                <p class="precio">$31.000</p>
+                <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+        </div>
     </section>
 
     <section id="buzos-mujer" class="seccion-ropa">
         <h2>Buzos Mujer</h2>
-        <p>Catálogo de tops próximamente...</p>
+        <div class="catalogo-grid">
+            <div class="tarjeta-producto">
+                <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=500" alt="Buzo Crop">
+                <h3>Buzo Crop Hoodie</h3>
+                <p class="precio">$27.000</p>
+                <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+        </div>
     </section>
     
     <script src="script.js"></script>
+
 </body>
 </html>

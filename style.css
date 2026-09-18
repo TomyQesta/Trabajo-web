@@ -1,4 +1,3 @@
-/* Reseteo básico para que ocupe toda la pantalla sin márgenes blancos */
 * {
     margin: 0;
     padding: 0;
@@ -6,15 +5,23 @@
     font-family: 'Arial', sans-serif;
 }
 html {
-    scroll-behavior: smooth; /* Activa el deslizamiento suave */
-    scroll-padding-top: 90px; /* Evita que el menú fijo superior tape los títulos al bajar */
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
 }
 
-/* Aprovechamos para agregar un estilo básico para las nuevas secciones de ropa */
+body {
+    background-color: #f8f9fa;
+}
+
+/* --- SECCIONES DE ROPA --- */
 .seccion-ropa {
     padding: 60px 40px;
-    min-height: 50vh; /* Hace que cada sección ocupe al menos la mitad de la pantalla */
+    min-height: 50vh;
     text-align: center;
+}
+
+.alt-bg {
+    background-color: #e9ecef;
 }
 
 .seccion-ropa h2 {
@@ -23,10 +30,58 @@ html {
     color: #1a1a1a;
     text-transform: uppercase;
 }
-body {
-    background-color: #f8f9fa;
+
+/* --- GRILLA DE PRODUCTOS (NUEVO) --- */
+.catalogo-grid {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px 10px 25px 10px;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    
+    /* Evita que el contenedor colapse */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
+.tarjeta-producto {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+
+    /* BLANCO FIJO Y OBLIGATORIO DE CADA TARJETA */
+    flex: 0 0 280px;
+    width: 280px;
+    min-width: 280px;
+    max-width: 280px;
+    scroll-snap-align: start;
+    
+    /* Oculta cualquier cosa que intente salirse de la tarjeta */
+    overflow: hidden; 
+}
+
+.tarjeta-producto:hover {
+    transform: translateY(-5px);
+}
+
+/* OBLIGA A LA IMAGEN A QUEDARSE ADENTRO DE LA TARJETA */
+.tarjeta-producto img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 280px !important;
+    object-fit: cover !important; /* Mantiene la proporción sin deformar ni agrandar */
+    border-radius: 6px;
+    margin-bottom: 15px;
+    display: block;
+}
 /* --- BARRA DE NAVEGACIÓN --- */
 .barra-navegacion {
     background-color: #1a1a1a;
@@ -35,21 +90,21 @@ body {
     align-items: center;
     padding: 0 40px;
     height: 70px;
-    position: fixed; /* Esto hace que el menú siempre quede arriba al bajar */
+    position: fixed;
     width: 100%;
     top: 0;
-    z-index: 100; /* Asegura que el menú esté por encima de la imagen */
+    z-index: 100;
 }
 
 .menu-principal {
     list-style: none;
     display: flex;
     gap: 120px; 
-    margin-left: 60px; /* Esto empuja Hombre y Mujer hacia la derecha */
+    margin-left: 60px;
 }
 
 .item-menu {
-    position: relative; /* Importante para que el submenú se posicione debajo de este item */
+    position: relative;
     padding: 25px 0;
 }
 
@@ -62,7 +117,13 @@ body {
 }
 
 .item-menu:hover > a {
-    color: #a8a8a8; /* Cambia de color al pasar el mouse */
+    color: #a8a8a8;
+}
+
+.carrito {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 /* --- SUBMENÚ --- */
@@ -70,11 +131,8 @@ body {
     list-style: none;
     position: absolute; 
     top: 70px; 
-    
-    /* Estos dos comandos nuevos centran la persiana perfectamente debajo de cada palabra */
     left: 50%;
     transform: translateX(-50%); 
-    
     min-width: 200px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.5); 
     background-color: #1a1a1a; 
@@ -83,35 +141,31 @@ body {
     transition: max-height 0.4s ease-in-out; 
 }
 
-/* Cuando paso el mouse, la "persiana" baja */
 .item-menu:hover .submenu {
-    max-height: 400px; /* Le damos una altura lo suficientemente grande para que entren las opciones */
+    max-height: 400px;
 }
 
 .submenu li a {
-    color: white; /* Letras blancas para contrastar con el fondo negro */
+    color: white;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    border-bottom: 1px solid #333; /* Una línea divisoria sutil y oscura */
-    transition: background-color 0.2s; /* Transición suave para el hover de cada item */
+    border-bottom: 1px solid #333;
+    transition: background-color 0.2s;
 }
 
-/* Le quitamos el borde al último elemento para que quede más prolijo */
 .submenu li:last-child a {
     border-bottom: none;
 }
 
-/* Efecto al pasar el mouse por cada opción del submenú */
 .submenu li a:hover {
-    background-color: #333; /* Un gris oscuro para indicar qué estás seleccionando */
+    background-color: #333;
 }
 
-/* --- LOBBY (FONDO Y TÍTULO) --- */
+/* --- LOBBY --- */
 .lobby {
-    height: 100vh; /* Ocupa el 100% de la altura de tu pantalla */
+    height: 100vh;
     width: 100%;
-    /* Imagen de tienda genérica de Unsplash */
     background-image: url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
     background-size: cover;
     background-position: center;
@@ -124,7 +178,7 @@ body {
 .capa-oscura {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4); /* Un negro transparente */
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .titulo-marca {
@@ -132,6 +186,38 @@ body {
     font-size: 100px;
     font-weight: 900;
     letter-spacing: 5px;
-    z-index: 10; /* Lo pone por encima de la capa oscura */
-    text-shadow: 2px 4px 10px rgba(0,0,0,0.5); /* Sombrita para que resalte más */
+    z-index: 10;
+    text-shadow: 2px 4px 10px rgba(0,0,0,0.5);
+}
+/* --- SELECTOR DE TALLES --- */
+.selector-talle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.selector-talle label {
+    font-size: 14px;
+    color: #555;
+    font-weight: bold;
+}
+
+.selector-talle select {
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #1a1a1a;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.selector-talle select:hover,
+.selector-talle select:focus {
+    border-color: #1a1a1a;
 }
