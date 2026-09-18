@@ -11,6 +11,10 @@
     <!-- Menú de navegación superior -->
     <nav class="barra-navegacion">
         <ul class="menu-principal">
+
+            <li class="item-menu">
+                <a href="#novedades">Novedades</a>
+            </li>
             
             <li class="item-menu">
                 <a href="#">Hombre</a>
@@ -48,6 +52,83 @@
         <h1 class="titulo-marca">FourTeen</h1>
     </main>
 
+    <!-- NUEVA SECCIÓN: NOVEDADES (Justo abajo de la screen principal) -->
+    <section id="novedades" class="seccion-ropa">
+    <h2>Novedades</h2>
+    
+    <div class="carrusel-infinito">
+        <div class="carrusel-pista">
+            
+            <!-- LISTA ORIGINAL DE PRODUCTOS -->
+            <div class="tarjeta-producto">
+                <img src="imagenes/Brasil-Titular-2002.jpg" alt="Camiseta Titular Brasil 2002">
+                <h3>Camiseta Titular Brasil 2002</h3>
+                <div class="selector-talle">
+                    <label for="talle-nov-1">Talle:</label>
+                    <select id="talle-nov-1" name="talle">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
+                <p class="precio">$30.500</p>
+                <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+
+            <div class="tarjeta-producto">
+                <img src="imagenes/Argentina-Suplente-1994.jpg" alt="Argentina Suplente 1994">
+                <h3>Camiseta Suplente Argentina 1994</h3>
+                <div class="selector-talle">
+                    <label for="talle-nov-2">Talle:</label>
+                    <select id="talle-nov-2" name="talle">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
+                <p class="precio">$16.000</p>
+                <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+
+            <!-- DUPLICA LAS MISMAS TARJETAS AQUÍ PARA MANTENER EL BUCLE INFINITO -->
+            <div class="tarjeta-producto">
+                <img src="imagenes/Brasil-Titular-2002.jpg" alt="Camiseta Titular Brasil 2002">
+                <h3>Camiseta Titular Brasil 2002</h3>
+                <div class="selector-talle">
+                    <label for="talle-nov-1-dup">Talle:</label>
+                    <select id="talle-nov-1-dup" name="talle">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
+                <p class="precio">$30.500</p>
+                <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+
+            <div class="tarjeta-producto">
+                <img src="imagenes/Argentina-Suplente-1994.jpg" alt="Argentina Suplente 1994">
+                <h3>Camiseta Suplente Argentina 1994</h3>
+                <div class="selector-talle">
+                    <label for="talle-nov-2-dup">Talle:</label>
+                    <select id="talle-nov-2-dup" name="talle">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
+                <p class="precio">$16.000</p>
+                <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+
+        </div>
+    </div>
+</section>
+    
     <!-- SECCIONES DE ROPA -->
     
     <section id="hombre-camisetas" class="seccion-ropa">
@@ -107,6 +188,23 @@
             <div class="tarjeta-producto">
                 <img src="imagenes/River-Titular-2018.jpg" alt="River-Titular-2018">
                 <h3>Camiseta Titular River Plate 2018</h3>
+                <div class="selector-talle">
+                    <label for="talle-2">Talle:</label>
+                    <select id="talle-2" name="talle">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+                </div>
+                <p class="precio">$16.000</p>
+                <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+
+            <div class="tarjeta-producto">
+                <img src="imagenes/Boca-Titular-2007.jpg" alt="Boca-Titular-2007">
+                <h3>Camiseta Titular Boca Juniors 2007</h3>
                 <div class="selector-talle">
                     <label for="talle-2">Talle:</label>
                     <select id="talle-2" name="talle">
