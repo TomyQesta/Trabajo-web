@@ -120,10 +120,31 @@ body {
     color: #a8a8a8;
 }
 
+/* --- ESTILOS DEL CARRITO Y LA BURBUJA --- */
 .carrito {
+    position: relative; /* Necesario para que la burbuja se ubique respecto al ícono */
+    font-size: 26px;    /* Agrandamos un poco el emoji del carrito */
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+#contador {
+    position: absolute;
+    top: -8px;          /* Sube la burbuja por encima del carrito */
+    right: -12px;       /* La mueve hacia la derecha */
+    background-color: #888888; /* Color gris por defecto */
     color: white;
-    font-size: 20px;
+    font-size: 13px;
     font-weight: bold;
+    padding: 2px 7px;
+    border-radius: 20px; /* La hace redondeada como una píldora/burbuja */
+    transition: background-color 0.3s ease; /* Efecto suave al cambiar a rojo */
+}
+
+/* Esta es la clase que le agregaremos con JavaScript cuando se compre algo */
+#contador.con-productos {
+    background-color: #e63946; /* Rojo vibrante */
 }
 
 /* --- SUBMENÚ --- */
@@ -260,4 +281,135 @@ body {
     100% {
         transform: translateX(-50%);
     }
+}
+/* --- ESTILO ESPECIAL PARA TARJETAS DE NOVEDADES --- */
+#novedades .tarjeta-producto {
+    /* Fondo gris oscuro con 80% de opacidad (0.8) */
+    background-color: rgba(30, 30, 30, 0.8); 
+    
+    /* Le quitamos el borde blanco que pudiera tener y suavizamos la sombra */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
+}
+
+/* Cambiamos el color de los textos para que se lean sobre el fondo oscuro */
+#novedades .tarjeta-producto h3 {
+    color: #ffffff;
+}
+
+#novedades .tarjeta-producto .precio {
+    color: #4ade80; /* Un verde más brillante para que el precio resalte bien */
+}
+
+#novedades .tarjeta-producto .selector-talle label {
+    color: #cccccc; /* Gris clarito para la palabra "Talle:" */
+}
+
+/* --- BOTÓN TRANSPARENTE EN NOVEDADES (SIN RECUADRO) --- */
+#novedades .btn-agregar {
+    background-color: transparent; /* Fondo transparente */
+    color: white; /* Letras blancas */
+    border: none; /* Quitamos cualquier recuadro o borde */
+}
+
+/* Efecto al pasar el mouse por encima */
+#novedades .btn-agregar:hover {
+    background-color: transparent; /* Sigue siendo transparente */
+    color: #cccccc; /* Las letras se vuelven gris clarito al pasar el mouse */
+}
+
+/* --- AJUSTES DEL BOTÓN AGREGAR AL CARRITO --- */
+.seccion-ropa .btn-agregar {
+    /* El primer número (15px) es el espacio arriba/abajo.
+       El segundo número (30px) es el espacio a la izquierda/derecha. */
+    padding: 15px 30px; 
+    
+    /* Para que el botón no toque los bordes de la tarjeta blanca */
+    width: 90%; 
+    margin: 0 auto; 
+    margin-top: 10px; /* Lo separa un poco del precio */
+    
+    /* Opcional: bordes un poco más redondeados */
+    border-radius: 8px; 
+}
+
+/* --- SELECTOR DE TALLE TRANSPARENTE SOLO EN NOVEDADES --- */
+#novedades .selector-talle select {
+    background-color: transparent; /* Fondo transparente */
+    border: 1px solid white;       /* Borde blanco */
+    color: white;                  /* Letras blancas para que se lean sobre el fondo oscuro */
+}
+
+/* Fondo oscuro para las opciones al hacer clic y desplegar el menú */
+#novedades .selector-talle select option {
+    background-color: #1a1a1a; 
+    color: white;
+}
+
+/* --- TARJETAS DE ROPA GRIS OSCURO --- */
+.seccion-ropa .tarjeta-producto {
+    background-color: #2b2b2b; /* Color gris oscuro */
+}
+
+/* Cambiamos los textos a colores claros para que contrasten */
+.seccion-ropa .tarjeta-producto h3 {
+    color: #ffffff; 
+}
+
+.seccion-ropa .tarjeta-producto .selector-talle label {
+    color: #cccccc; 
+}
+
+.seccion-ropa .tarjeta-producto .precio {
+    color: #4ade80; /* Verde brillante para que el precio destaque */
+}
+
+/* --- PIE DE PÁGINA (SOBRE NOSOTROS) --- */
+.pie-pagina {
+    background-color: #1a1a1a; /* Mismo negro que la barra de navegación */
+    color: #ffffff;            /* Letras blancas */
+    text-align: center;
+    padding: 60px 40px;        /* Espacio generoso por dentro */
+    margin-top: 50px;          /* Lo separa de la última sección de ropa */
+}
+
+.pie-pagina h2 {
+    font-size: 32px;
+    margin-bottom: 25px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;       /* Separa un poquito las letras del título */
+}
+
+.pie-pagina p {
+    max-width: 800px;          /* Evita que el texto sea una línea larguísima e incómoda de leer */
+    margin: 0 auto 15px auto;  /* Centra el párrafo */
+    line-height: 1.6;          /* Da espacio entre los renglones */
+    font-size: 18px;
+    color: #cccccc;            /* Gris clarito para no cansar la vista */
+}
+
+.pie-pagina .derechos {
+    margin-top: 40px;
+    font-size: 14px;
+    color: #777777;            /* Gris más oscuro para la parte legal */
+}
+
+/* --- GRUPO DERECHO DE LA BARRA (Sobre nosotros + Carrito) --- */
+.menu-derecho {
+    display: flex;
+    align-items: center;
+    gap: 40px; /* Separación entre 'Sobre nosotros' y el carrito */
+}
+
+.enlace-derecho {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.2s;
+}
+
+.enlace-derecho:hover {
+    color: #a8a8a8; /* El mismo tono gris que el resto del menú al pasar el mouse */
 }

@@ -17,6 +17,9 @@ botones.forEach(function(boton) {
         // Actualizamos el número en la página web
         contadorHtml.innerText = cantidadEnCarrito;
         
+        // NUEVO: Agregamos la clase para que la burbuja se vuelva roja
+        contadorHtml.classList.add('con-productos');
+        
         // Opcional: Mostramos un pequeño mensaje de confirmación
         alert('¡Prenda agregada al carrito!');
     });

@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FourTeen</title>
+    <title>FOURTEEN</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Menú de navegación superior -->
+   <!-- Menú de navegación superior -->
     <nav class="barra-navegacion">
         <ul class="menu-principal">
 
+            <!-- "Novedades" vuelve a su lugar original a la izquierda -->
             <li class="item-menu">
                 <a href="#novedades">Novedades</a>
             </li>
@@ -41,8 +42,12 @@
 
         </ul>
         
-        <div class="carrito">
-            🛒 <span id="contador">0</span>
+        <!-- GRUPO DERECHO: Sobre nosotros + Carrito -->
+        <div class="menu-derecho">
+            <a href="#sobre-nosotros" class="enlace-derecho">Sobre nosotros</a>
+            <div class="carrito">
+                🛒 <span id="contador">0</span>
+            </div>
         </div>
     </nav>
 
@@ -62,7 +67,7 @@
             <!-- LISTA ORIGINAL DE PRODUCTOS -->
             <div class="tarjeta-producto">
                 <img src="imagenes/Brasil-Titular-2002.jpg" alt="Camiseta Titular Brasil 2002">
-                <h3>Camiseta Titular Brasil 2002</h3>
+                <h3>Camiseta Titular Brasil<p>2002</p></h3>
                 <div class="selector-talle">
                     <label for="talle-nov-1">Talle:</label>
                     <select id="talle-nov-1" name="talle">
@@ -92,10 +97,61 @@
                 <button class="btn-agregar">Agregar al carrito</button>
             </div>
 
+            <div class="tarjeta-producto">
+                <img src="imagenes/Francia-Suplente-2006.jpg" alt="Francia Suplente">
+                <h3>Camiseta Suplente Francia 2006</h3>
+                <div class="selector-talle">
+                    <label for="talle-2">Talle:</label>
+                    <select id="talle-2" name="talle">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+                </div>
+                <p class="precio">$16.000</p>
+                <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+
+            <div class="tarjeta-producto">
+                <img src="imagenes/River-Titular-2018.jpg" alt="River-Titular-2018">
+                <h3>Camiseta Titular River Plate 2018</h3>
+                <div class="selector-talle">
+                    <label for="talle-2">Talle:</label>
+                    <select id="talle-2" name="talle">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+                </div>
+                <p class="precio">$16.000</p>
+                <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+
+            <div class="tarjeta-producto">
+                <img src="imagenes/Boca-Titular-2007.jpg" alt="Boca-Titular-2007">
+                <h3>Camiseta Titular Boca Juniors 2007</h3>
+                <div class="selector-talle">
+                    <label for="talle-2">Talle:</label>
+                    <select id="talle-2" name="talle">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+                </div>
+                <p class="precio">$16.000</p>
+                <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+
             <!-- DUPLICA LAS MISMAS TARJETAS AQUÍ PARA MANTENER EL BUCLE INFINITO -->
             <div class="tarjeta-producto">
                 <img src="imagenes/Brasil-Titular-2002.jpg" alt="Camiseta Titular Brasil 2002">
-                <h3>Camiseta Titular Brasil 2002</h3>
+                <h3>Camiseta Titular Brasil <p>2002</p></h3>
                 <div class="selector-talle">
                     <label for="talle-nov-1-dup">Talle:</label>
                     <select id="talle-nov-1-dup" name="talle">
@@ -125,6 +181,57 @@
                 <button class="btn-agregar">Agregar al carrito</button>
             </div>
 
+            <div class="tarjeta-producto">
+                <img src="imagenes/Francia-Suplente-2006.jpg" alt="Francia Suplente">
+                <h3>Camiseta Suplente Francia 2006</h3>
+                <div class="selector-talle">
+                    <label for="talle-2">Talle:</label>
+                    <select id="talle-2" name="talle">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+                </div>
+                <p class="precio">$16.000</p>
+                <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+
+            <div class="tarjeta-producto">
+                <img src="imagenes/River-Titular-2018.jpg" alt="River-Titular-2018">
+                <h3>Camiseta Titular River Plate 2018</h3>
+                <div class="selector-talle">
+                    <label for="talle-2">Talle:</label>
+                    <select id="talle-2" name="talle">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+                </div>
+                <p class="precio">$16.000</p>
+                <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+
+            <div class="tarjeta-producto">
+                <img src="imagenes/Boca-Titular-2007.jpg" alt="Boca-Titular-2007">
+                <h3>Camiseta Titular Boca Juniors 2007</h3>
+                <div class="selector-talle">
+                    <label for="talle-2">Talle:</label>
+                    <select id="talle-2" name="talle">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+                </div>
+                <p class="precio">$16.000</p>
+                <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+
         </div>
     </div>
 </section>
@@ -136,7 +243,7 @@
         <div class="catalogo-grid">
             <div class="tarjeta-producto">
                 <img src="imagenes/Brasil-Titular-2002.jpg" alt="Camiseta Titular Brasil 2002">
-                <h3>Camiseta Titular Brasil 2002</h3>
+                <h3>Camiseta Titular Brasil<p>2002</p></h3>
                 <div class="selector-talle">
                     <label for="talle-2">Talle:</label>
                     <select id="talle-2" name="talle">
@@ -351,6 +458,19 @@
             </div>
         </div>
     </section>
+    <!-- PIE DE PÁGINA / SOBRE NOSOTROS -->
+    <footer id="sobre-nosotros" class="pie-pagina">
+        <h2>Sobre Nosotros</h2>
+        <p>
+            En FourTeen nos apasiona el estilo urbano y deportivo. Nacimos con la idea de traerte la mejor calidad en indumentaria, combinando comodidad y las últimas tendencias. Ya sea para entrenar o para el día a día, queremos que encuentres el outfit perfecto que te represente.
+        </p>
+        <p>
+            Instagram: <p>Numero Contacto:</p>
+        </p>
+        <p class="derechos">
+            &copy; 2026 FourTeen. Todos los derechos reservados.
+        </p>
+    </footer>
     
     <script src="script.js"></script>
 
