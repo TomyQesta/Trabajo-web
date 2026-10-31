@@ -8,6 +8,24 @@
 </head>
 <body>
 
+<!-- Pantalla de Introducción Dividida -->
+<div id="intro-pantalla">
+    
+    <!-- El 14 que aparecerá flotando en el hueco del medio -->
+    <div class="numero-centro">14</div>
+    
+    <!-- Puerta Izquierda con el fondo y la palabra "Four" -->
+    <div class="panel panel-izq">
+        <span class="texto-izq">Four</span>
+    </div>
+    
+    <!-- Puerta Derecha con el fondo y la palabra "teen" -->
+    <div class="panel panel-der">
+        <span class="texto-der">teen</span>
+    </div>
+
+</div>
+
    <!-- Menú de navegación superior -->
     <nav class="barra-navegacion">
         <ul class="menu-principal">
@@ -45,9 +63,10 @@
         <!-- GRUPO DERECHO: Sobre nosotros + Carrito -->
         <div class="menu-derecho">
             <a href="#sobre-nosotros" class="enlace-derecho">Sobre nosotros</a>
-            <div class="carrito">
-                🛒 <span id="contador">0</span>
-            </div>
+          <!-- Enlace modificado: usamos un ID para detectarlo con JavaScript -->
+        <div id="abrir-carrito" class="carrito">
+         🛒 <span id="contador">0</span>
+        </div>
         </div>
     </nav>
 
@@ -75,6 +94,7 @@
                         <option value="M" selected>M</option>
                         <option value="L">L</option>
                         <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
                     </select>
                 </div>
                 <p class="precio">$30.500</p>
@@ -91,6 +111,7 @@
                         <option value="M" selected>M</option>
                         <option value="L">L</option>
                         <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
                     </select>
                 </div>
                 <p class="precio">$16.000</p>
@@ -159,6 +180,7 @@
                         <option value="M" selected>M</option>
                         <option value="L">L</option>
                         <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
                     </select>
                 </div>
                 <p class="precio">$30.500</p>
@@ -175,6 +197,7 @@
                         <option value="M" selected>M</option>
                         <option value="L">L</option>
                         <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
                     </select>
                 </div>
                 <p class="precio">$16.000</p>
@@ -471,6 +494,33 @@
             &copy; 2026 FourTeen. Todos los derechos reservados.
         </p>
     </footer>
+    
+   <!-- OVERLAY (Fondo oscuro que aparece detrás del panel) -->
+    <div id="overlay-carrito"></div>
+
+    <!-- PANEL LATERAL DEL CARRITO -->
+    <div id="carrito-lateral">
+        <div class="cabecera-carrito">
+            <h2>Tu Carrito</h2>
+            <button id="cerrar-carrito" class="btn-cerrar">✖</button>
+        </div>
+        
+        <div id="lista-carrito-lateral">
+            <!-- Los productos se inyectarán aquí mágicamente -->
+        </div>
+        
+        <div class="pie-carrito">
+            <!-- Contenedor del Total -->
+            <div id="contenedor-total">
+                <span>Total:</span>
+                <span id="total-carrito">$0</span>
+            </div>
+            
+            <!-- Nuevos botones -->
+            <button id="btn-terminar-compra" class="btn-terminar">Terminar Compra</button>
+            <button id="btn-vaciar-lateral" class="btn-vaciar">Vaciar Carrito</button>
+        </div>
+    </div>
     
     <script src="script.js"></script>
 

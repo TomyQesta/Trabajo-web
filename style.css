@@ -248,7 +248,9 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    position: relative
+    position: relative;
+    padding-left: 0;  /* Nuevo: quita el espacio izquierdo */
+    padding-right: 0; /* Nuevo: quita el espacio derecho */
 }
 #novedades h2{
     color: #ffffff;
@@ -258,7 +260,7 @@ body {
 .carrusel-infinito {
     overflow: hidden;
     width: 100%;
-    max-width: 1200px;
+    /* max-width: 1200px; <- Eliminamos esta línea */
     margin: 0 auto;
     position: relative;
 }
@@ -412,4 +414,264 @@ body {
 
 .enlace-derecho:hover {
     color: #a8a8a8; /* El mismo tono gris que el resto del menú al pasar el mouse */
+}
+
+/* Contenedor principal con efecto de desenfoque (blur) */
+#intro-pantalla {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    backdrop-filter: blur(12px); /* Aplica el blur al fondo de la tienda */
+    -webkit-backdrop-filter: blur(12px); /* Soporte para Safari */
+    animation: desvanecerIntro 0.5s ease 5.5s forwards; /* Se desvanece y quita el blur al final */
+}
+
+/* Estructura de los paneles */
+.panel {
+    position: absolute;
+    top: 0;
+    width: 50vw; 
+    height: 100vh;
+    background-color: #111; 
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Panel izquierdo: se abre a la mitad y luego se va por completo */
+.panel-izq {
+    left: 0;
+    justify-content: flex-end;
+    animation: 
+        abrirParcialIzq 1s ease 1.5s forwards, 
+        abrirTotalIzq 1s ease 4.5s forwards;
+}
+
+/* Panel derecho: se abre a la mitad y luego se va por completo */
+.panel-der {
+    right: 0;
+    justify-content: flex-start;
+    animation: 
+        abrirParcialDer 1s ease 1.5s forwards, 
+        abrirTotalDer 1s ease 4.5s forwards;
+}
+
+/* Textos de los paneles */
+.texto-izq, .texto-der {
+    font-family: 'Arial', sans-serif; 
+    font-size: 5rem;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1;
+}
+
+/* NUEVO: Separación para que las palabras no queden pegadas al corte del medio */
+.texto-izq {
+    padding-right: 40px; 
+}
+
+.texto-der {
+    padding-left: 40px;
+}
+
+/* El número "14" */
+.numero-centro {
+    position: absolute;
+    z-index: -1; 
+    font-family: 'Arial', sans-serif;
+    font-size: 11rem; /* Aumentamos el tamaño (antes estaba en 6rem) */
+    font-weight: bold;
+    color: #ff0000; 
+    opacity: 0;
+    transform: scale(0.5);
+    /* Se cambió de 2s a 1.5s para que arranque EXACTAMENTE cuando se abre la persiana */
+    animation: aparecerNumero 1s ease 1.5s forwards, ocultarNumero 0.5s ease 4s forwards;
+}
+
+/* --- SECUENCIA DE ANIMACIONES --- */
+
+/* 1. Primera apertura (Dejan el hueco para el 14) */
+@keyframes abrirParcialIzq { from { transform: translateX(0); } to { transform: translateX(-20vw); } }
+@keyframes abrirParcialDer { from { transform: translateX(0); } to { transform: translateX(20vw); } }
+
+/* 2. Apertura total (Las puertas salen de la pantalla) */
+@keyframes abrirTotalIzq { from { transform: translateX(-20vw); } to { transform: translateX(-100vw); } }
+@keyframes abrirTotalDer { from { transform: translateX(20vw); } to { transform: translateX(100vw); } }
+
+/* 3. Aparición y desaparición del 14 */
+@keyframes aparecerNumero { to { opacity: 1; transform: scale(1); } }
+@keyframes ocultarNumero { to { opacity: 0; transform: scale(0.5); } }
+
+/* 4. Desvanecimiento del contenedor y el blur */
+@keyframes desvanecerIntro { to { opacity: 0; visibility: hidden; } }
+
+/* --- EFECTO SLIDE (PANEL LATERAL DEL CARRITO) --- */
+
+/* Fondo oscuro desenfocado que cubre la página */
+#overlay-carrito {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+#overlay-carrito.activo {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* El panel lateral gris oscuro */
+#carrito-lateral {
+    position: fixed;
+    top: 0; right: 0;
+    width: 350px;
+    max-width: 100%; /* Para que en celulares no se pase del ancho */
+    height: 100vh;
+    background-color: #2b2b2b; /* Mismo gris oscuro de las tarjetas */
+    color: white;
+    z-index: 1000;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    
+    /* Lo movemos fuera de la pantalla hacia la derecha */
+    transform: translateX(100%);
+    transition: transform 0.4s ease; /* Efecto suave de deslizamiento */
+}
+
+/* Clase que aplicará JavaScript para meterlo en la pantalla */
+#carrito-lateral.abierto {
+    transform: translateX(0);
+}
+
+/* Estilos internos del panel */
+.cabecera-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #444;
+}
+
+.cabecera-carrito h2 {
+    font-size: 20px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.btn-cerrar {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.btn-cerrar:hover { color: #e63946; }
+
+#lista-carrito-lateral {
+    flex-grow: 1;
+    overflow-y: auto; /* Si hay muchos productos, se podrá scrollear */
+    padding: 20px;
+}
+
+.pie-carrito {
+    padding: 20px;
+    border-top: 1px solid #444;
+}
+
+.item-carrito-lateral {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 15px 0; 
+    border-bottom: 1px solid #444;
+}
+
+.item-carrito-lateral h3 { 
+    font-size: 16px; 
+    margin: 0; 
+}
+
+.item-carrito-lateral .precio { 
+    color: #4ade80; 
+    font-weight: bold; 
+}
+
+.btn-vaciar { 
+    width: 100%;
+    background-color: transparent; 
+    color: #e63946; 
+    border: 1px solid #e63946; 
+    padding: 12px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.2s;
+}
+
+.btn-vaciar:hover {
+    background-color: #e63946;
+    color: white;
+}
+
+/* --- ESTILOS DEL TOTAL Y TERMINAR COMPRA --- */
+#contenedor-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #555; /* Línea punteada para separar */
+}
+
+#total-carrito {
+    color: #4ade80; /* Color verde vibrante */
+}
+
+.btn-terminar {
+    width: 100%;
+    background-color: #4ade80; /* Verde */
+    color: #1a1a1a; /* Texto oscuro para contrastar */
+    border: none;
+    padding: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+    margin-bottom: 10px; /* Lo separa del botón de vaciar */
+    transition: background-color 0.2s;
+}
+
+.btn-terminar:hover {
+    background-color: #38c968; /* Un verde un poco más oscuro al pasar el mouse */
+}
+
+/* --- ESTILO PARA EL TALLE EN EL CARRITO --- */
+.talle-carrito {
+    font-size: 12px;           /* Letra más chiquita */
+    color: #cccccc;            /* Gris clarito */
+    font-weight: normal;       /* Le sacamos la negrita */
+    margin-left: 8px;          /* Lo separamos un poco del nombre */
+    background-color: #444;    /* Le ponemos un fondito oscuro */
+    padding: 2px 6px;          /* Espacio interno para que parezca una etiqueta */
+    border-radius: 4px;        /* Bordes redondeados */
 }
